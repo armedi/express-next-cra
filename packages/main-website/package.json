@@ -1,8 +1,8 @@
 {
-  "name": "custom-server-typescript",
+  "name": "main-website",
   "version": "1.0.0",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon",
+    "dev": "cross-env NODE_ENV=development nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node dist/app.js"
   },

@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd next-custom-server && npm start",
-    "build": "run-p build:server build:dashboard",
-    "build:server": "cd next-custom-server && npm run build",
-    "build:dashboard": "cd dashboard && npm run build",
-    "dev": "run-p dev:server dev:dashboard",
-    "dev:server": "cd next-custom-server && npm run dev",
-    "dev:dashboard": "cd dashboard && npm start",
+    "bootstrap": "lerna bootstrap",
+    "build:deps": "lerna run build --scope react-components",
+    "build": "lerna run build",
+    "start": "lerna run start --scope main-website",
+    "dev": "run-p dev:server dev:dashboard dev:components",
+    "dev:server": "lerna run dev --scope main-website",
+    "dev:dashboard": "lerna run start --scope dashboard",
+    "dev:components": "lerna run start --scope react-components",
+    "storybook": "lerna run storybook --scope react-components",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Armedi",
   "license": "ISC",
   "devDependencies": {
+    "lerna": "^3.22.0",
     "npm-run-all": "^4.1.5"
   }
 }
